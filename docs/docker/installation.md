@@ -16,11 +16,11 @@ WSL 2 backend
 
 Press `win + r` to open Run
 
-![run window](\images\ptyFmmWn7j.png)
+![run window](../images/ptyFmmWn7j.png)
 
 Type `winver` and press `Ok`
 
-![windows version](\images\winver_6Nu3r90Sd7.png)
+![windows version](../images/winver_6Nu3r90Sd7.png)
 
 ### BIOS-level hardware virtualization
 
@@ -37,7 +37,7 @@ Open Task Manager
 Go to Performance Tab and Check if virtualization is Disabled or enabled
 
 
-![task manager](\images\Taskmgr_9ypZijIFle.png)
+![task manager](../images/Taskmgr_9ypZijIFle.png)
 
 To enable BIOS-level hardware virtualization on your computer, you will need to follow the specific instructions provided by the manufacturer of your motherboard and CPU.  
 
@@ -61,13 +61,13 @@ The following hardware prerequisites are required to successfully run WSL 2 on W
 
 Start powershell as admin
 
-![powershell as admin](\images\vivaldi_SzwTGrX1u2.png)
+![powershell as admin](../images/vivaldi_SzwTGrX1u2.png)
 
 Run the command in the powershell to install WSL 2
 
     wsl --install
 
-![powershell](\images\powershell_Ij3bBXZHJ3.png)
+![powershell](../images/powershell_Ij3bBXZHJ3.png)
 
 ## Downloading and installing Docker
 
@@ -75,43 +75,43 @@ Start with downloading docker.exe installer
 
 Link to download : [https://www.docker.com](https://www.docker.com){:target="_blank"}
 
-![download link](/images/downloaddocker.png)
+![download link](../images/downloaddocker.png)
 
 Double-click Docker Desktop Installer.exe to run the installer.
 
-![docker exe](/images/vivaldi_MEDS1KHYEV.png)
+![docker exe](../images/vivaldi_MEDS1KHYEV.png)
 
 Click Run
 
-![Click run](\images\explorer_UYAGuuQcjH.png)
+![Click run](../images/explorer_UYAGuuQcjH.png)
 
 Leave the default configuration as it is and click ok
 
-![Default Config Docker](\images\Docker_Desktop_Installer.png)
+![Default Config Docker](../images/Docker_Desktop_Installer.png)
 
 Wait till Docker finishes installing
 
-![Installing docker](\images\Docker_Desktop_InstallerVXzJiU9oBC.png)
+![Installing docker](../images/Docker_Desktop_InstallerVXzJiU9oBC.png)
 
-![Installation Finished](\images\Docker_Desktop_InstallerfScZneloWf.png)
+![Installation Finished](../images/Docker_Desktop_InstallerfScZneloWf.png)
 
 Open Docker
 
-![Docker First Launch](\images\vivaldi_d63WxH1DYK.png)
+![Docker First Launch](../images/vivaldi_d63WxH1DYK.png)
 
 Accept the terms and service
 
-![Terms and service docker](\images\Docker_Desktop_bDkyFxLBXp.png)
+![Terms and service docker](../images/Docker_Desktop_bDkyFxLBXp.png)
 
 After waiting for docker to start this screen will open
 
-![Docker started](\images\Docker_Desktop_6kBnCDjWrL.png)
+![Docker started](../images/Docker_Desktop_6kBnCDjWrL.png)
 
 !!! Failure
 
     If Hardware Level BIOS Virtualization is not enabled the following error will be displayed when starting docker  
     [Find out how to enable Hardware Level BIOS Virtualization](installation.md#steps-to-check-if-bios-level-hardware-virtualization-is-enabled)
 
-    ![If Didnt follow steps](\images\Docker_Desktop_V5m42WCtE3.png)
+    ![If Didnt follow steps](../images/Docker_Desktop_V5m42WCtE3.png)
 
 
