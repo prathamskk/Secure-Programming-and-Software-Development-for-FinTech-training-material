@@ -1,17 +1,10 @@
-# Welcome to MkDocs
+# Secure Programming and Software Development for FinTech
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+PG-DFBD September 2022
 
-## Commands
-
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+## Course info
+- Duration: 30 hours
+- Evaluation method: 
+    * Theory exam– 40% weightage
+    * Lab exam – 40% weightage
+    * Internal exam – 20% weightage
