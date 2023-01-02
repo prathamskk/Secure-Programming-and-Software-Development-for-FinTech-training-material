@@ -1,0 +1,868 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<link href="../../assets/images/favicon.png" rel="icon"/>
+<meta content="mkdocs-1.4.2, mkdocs-material-8.5.10" name="generator"/>
+<title>Lab 1 Basics - My Docs</title>
+<link href="../../assets/stylesheets/main.975780f9.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.2505c338.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+            html.glightbox-open { overflow: initial; height: 100%; }
+            .gslide-title { margin-top: 0px; user-select: text; }
+            .gslide-desc { color: #666; user-select: text; }
+            .gslide-image img { background: white; }
+            
+                .gscrollbar-fixer { padding-right: 15px; }
+                .gdesc-inner { font-size: 0.75rem; }
+                body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+                body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+                body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}
+                </style><script src="../../assets/javascripts/glightbox.min.js"></script></head>
+<body data-md-color-accent="" data-md-color-primary="" data-md-color-scheme="default" dir="ltr">
+<script>var palette=__md_get("__palette");if(palette&&"object"==typeof palette.color)for(var key of Object.keys(palette.color))document.body.setAttribute("data-md-color-"+key,palette.color[key])</script>
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#docker-basics">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="My Docs" class="md-header__button md-logo" data-md-component="logo" href="../.." title="My Docs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            My Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Lab 1 Basics
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="" data-md-color-media="" data-md-color-primary="" data-md-color-scheme="slate" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"></path></svg>
+</label>
+</form>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="My Docs" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="My Docs">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"></path></svg>
+</a>
+    My Docs
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+        Home
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2">
+          Docker
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-label="Docker" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+          Docker
+        </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../installation/">
+        Installation
+      </a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" data-md-toggle="toc" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+          Lab 1 Basics
+          <span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+        Lab 1 Basics
+      </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initial-setup">
+    Initial Setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-some-simple-docker-containers">
+    Run some simple Docker containers
+  </a>
+<nav aria-label="Run some simple Docker containers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-single-task-in-an-alpine-linux-container">
+    Run a single task in an Alpine Linux container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-an-interactive-ubuntu-container">
+    Run an interactive Ubuntu container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-background-mysql-container">
+    Run a background MySQL container
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#package-and-run-a-custom-app-using-docker-and-dockerfile">
+    Package and run a custom app using Docker and Dockerfile
+  </a>
+<nav aria-label="Package and run a custom app using Docker and Dockerfile" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#build-a-simple-website-image">
+    Build a simple website image
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#initial-setup">
+    Initial Setup
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-some-simple-docker-containers">
+    Run some simple Docker containers
+  </a>
+<nav aria-label="Run some simple Docker containers" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-single-task-in-an-alpine-linux-container">
+    Run a single task in an Alpine Linux container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-an-interactive-ubuntu-container">
+    Run an interactive Ubuntu container
+  </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#run-a-background-mysql-container">
+    Run a background MySQL container
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#package-and-run-a-custom-app-using-docker-and-dockerfile">
+    Package and run a custom app using Docker and Dockerfile
+  </a>
+<nav aria-label="Package and run a custom app using Docker and Dockerfile" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#build-a-simple-website-image">
+    Build a simple website image
+  </a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="docker-basics">Docker Basics</h1>
+<h2 id="initial-setup">Initial Setup</h2>
+<p>Open <a href="https://labs.play-with-docker.com">https://labs.play-with-docker.com</a> in your preferred browser</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_sKh1XXjsga.png"><img alt="docker playground" src="../../images/vivaldi_sKh1XXjsga.png"/></a></p>
+<p>Click Start</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_lDVGMLCb4Q.png"><img alt="image" src="../../images/vivaldi_lDVGMLCb4Q.png"/></a></p>
+<p>Click on Add New Instance</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/HPfy4lqWjF.png"><img alt="image" src="../../images/HPfy4lqWjF.png"/></a></p>
+<p>If you see this You are now succesfully controlling your own temporary machine with alpine Linux and docker</p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Alpine Linux is a Linux distribution designed to be small, simple and secure</p>
+</div>
+<h2 id="run-some-simple-docker-containers">Run some simple Docker containers</h2>
+<p>There are different ways to use containers. These include:</p>
+<ol>
+<li><strong>To run a single task:</strong> This could be a shell script or a custom app.</li>
+<li><strong>Interactively:</strong> This connects you to the container similar to the way you SSH into a remote server.</li>
+<li><strong>In the background:</strong> For long-running services like websites and databases.</li>
+</ol>
+<p>In this section you'll try each of those options and see how Docker manages the workload.</p>
+<h3 id="run-a-single-task-in-an-alpine-linux-container">Run a single task in an Alpine Linux container</h3>
+<ul>
+<li>In this step we're going to start a new container</li>
+<li>tell it to run the <code>hostname</code> command. </li>
+<li>
+<p>The container will start, execute the <code>hostname</code> command, then exit.</p>
+</li>
+<li>
+<p>Run the following command in your Linux console.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>docker container run alpine hostname
+</code></pre></div>
+<ul>
+<li>The output below shows that the <code>alpine:latest</code> image could not be found locally.</li>
+<li>
+<p>When this happens, Docker automatically <em>pulls</em> it from Docker Hub.</p>
+</li>
+<li>
+<p>After the image is pulled, the container's hostname is displayed (d161753ccebf in the example below).</p>
+</li>
+<li>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_OrxmzqwMb8.png"><img alt="output" src="../../images/vivaldi_OrxmzqwMb8.png"/></a></p>
+</li>
+<li>
+<p>Docker keeps a container running as long as the process it started inside the container is still running.</p>
+</li>
+<li>In this case the <code>hostname</code> process exits as soon as the output is written. - This means the container stops.</li>
+<li>
+<p>However, Docker doesn't delete resources by default, so the container still exists in the <code>Exited</code> state.</p>
+</li>
+<li>
+<p>List all containers.</p>
+</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>docker container ls --all
+</code></pre></div>
+<ul>
+<li>Notice that your Alpine Linux container is in the <code>Exited</code> state.</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_YD88XVzG3v.png"><img alt="image" src="../../images/vivaldi_YD88XVzG3v.png"/></a></p>
+<div class="highlight"><pre><span></span><code>&gt; **Note:** The container ID *is* the hostname that the container displayed. In the example above it's `d161753ccebf`.
+</code></pre></div>
+<ul>
+<li>Containers which do one task and then exit can be very useful.</li>
+<li>You could build a Docker image that executes a script to configure something.</li>
+<li>Anyone can execute that task just by running the container - they don't need the actual scripts or configuration information.</li>
+</ul>
+<h3 id="run-an-interactive-ubuntu-container">Run an interactive Ubuntu container</h3>
+<ul>
+<li>
+<p>You can run a container based on a different version of Linux than is running on your Docker host.</p>
+</li>
+<li>
+<p>In the next example, we are going to run an <strong>Ubuntu Linux</strong> container on top of an Alpine Linux Docker host (Play With Docker uses Alpine Linux for its nodes).</p>
+</li>
+<li>
+<p>Run a Docker container and access its shell.</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>docker container run --interactive --tty --rm ubuntu bash
+</code></pre></div>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_MYQlF8v4QU.png"><img alt="image" src="../../images/vivaldi_MYQlF8v4QU.png"/></a></p>
+</li>
+<li>
+<p>In this example, we're giving Docker three parameters:</p>
+<ul>
+<li><code>--interactive</code> says you want an interactive session.</li>
+<li><code>--tty</code> allocates a pseudo-tty.</li>
+<li><code>--rm</code> tells Docker to go ahead and remove the container when it's done executing.</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>A tty is essentially a text input output environment i.e basically a shell.</p>
+</div>
+<ul>
+<li>
+<p>The first two parameters allow you to interact with the Docker container.</p>
+</li>
+<li>
+<p>We're also telling the container to run <code>bash</code> as its main process (PID 1).</p>
+</li>
+<li>
+<p>When the container starts you'll drop into the bash shell with the default prompt <code>root@&lt;container id&gt;:/#</code>.</p>
+</li>
+<li>
+<p>Docker has attached to the shell in the container, relaying input and output between your local session and the shell session in the container.</p>
+</li>
+<li>
+<p>Run the following commands in the container.</p>
+</li>
+<li>
+<p><code>ls /</code> will list the contents of the root directory in the container</p>
+</li>
+<li><code>ps aux</code> will show running processes in the container</li>
+<li><code>cat /etc/issue</code> will show which Linux distro the container is running, in this case Ubuntu 20.04.3 LTS.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>ls /
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>ps aux
+</code></pre></div>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>cat /etc/issue
+</code></pre></div>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_5UhqllspVG.png"><img alt="image" src="../../images/vivaldi_5UhqllspVG.png"/></a></p>
+<ul>
+<li>Type <code>exit</code> to leave the shell session.</li>
+<li>
+<p>This will terminate the <code>bash</code> process, causing the container to exit.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>exit
+</code></pre></div>
+<blockquote>
+<p><strong>Note:</strong> As we used the <code>--rm</code> flag when we started the container, Docker removed the container when it stopped. This means if you run another <code>docker container ls --all</code> you won't see the Ubuntu container.</p>
+</blockquote>
+</li>
+<li>
+<p>For fun, let's check the version of our host VM.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>cat /etc/issue
+</code></pre></div>
+</li>
+<li>
+<p>You should see:</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_RfGwAtVXbi.png"><img alt="image" src="../../images/vivaldi_RfGwAtVXbi.png"/></a></p>
+<ul>
+<li>Notice that our host VM is running Alpine Linux,</li>
+<li>yet we were able to run an Ubuntu container. </li>
+<li>
+<p>As previously mentioned, the distribution of Linux inside the container does not need to match the distribution of Linux running on the Docker host.</p>
+</li>
+<li>
+<p>However, Linux containers require the Docker host to be running a Linux kernel.</p>
+</li>
+<li>For example, Linux containers cannot run directly on Windows Docker hosts.</li>
+<li>The same is true of Windows containers </li>
+<li>
+<p>they need to run on a Docker host with a Windows kernel.</p>
+</li>
+<li>
+<p>Interactive containers are useful when you are putting together your own image.</p>
+</li>
+<li>You can run a container and verify all the steps you need to deploy your app, and capture them in a Dockerfile.</li>
+</ul>
+<blockquote>
+<p>You <em>can</em> <a href="https://docs.docker.com/engine/reference/commandline/commit/">commit</a> a container to make an image from it - but you should avoid that wherever possible. It's much better to use a repeatable <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a> to build your image. You'll see that shortly.</p>
+</blockquote>
+<h3 id="run-a-background-mysql-container">Run a background MySQL container</h3>
+<p>Background containers are how you'll run most applications. Here's a simple example using MySQL.</p>
+<ul>
+<li>
+<p>Run a new MySQL container with the following command.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>docker container run \
+<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>--detach \
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>--name mydb \
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>-e MYSQL_ROOT_PASSWORD=my-secret-pw \
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>mysql:latest
+</code></pre></div>
+<ul>
+<li><code>--detach</code> will run the container in the background.</li>
+<li><code>--name</code> will name it <strong>mydb</strong>.</li>
+<li><code>-e</code> will use an environment variable to specify the root password (NOTE: This should never be done in production).</li>
+</ul>
+<p>As the MySQL image was not available locally, Docker automatically pulled it from Docker Hub.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_zOscbJDKBz.png"><img alt="image" src="../../images/vivaldi_zOscbJDKBz.png"/></a></p>
+<ul>
+<li>
+<p>As long as the MySQL process is running, Docker will keep the container running in the background.</p>
+</li>
+<li>
+<p>List the running containers.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>docker container ls
+</code></pre></div>
+<p>Notice your container is running.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_PlUA82xB8E.png"><img alt="image" src="../../images/vivaldi_PlUA82xB8E.png"/></a></p>
+<ul>
+<li>
+<p>You can check what's happening in your containers by using a couple of built-in Docker commands: <code>docker container logs</code> and <code>docker container top</code>.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>docker container logs mydb
+</code></pre></div>
+<p>This shows the logs from the MySQL Docker container.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_FgpcG0dezO.png"><img alt="image" src="../../images/vivaldi_FgpcG0dezO.png"/></a></p>
+<div class="highlight"><pre><span></span><code>  Let's look at the processes running inside the container.
+
+```.term1
+  docker container top mydb
+```
+
+You should see the MySQL daemon (`mysqld`) is running in the container.
+</code></pre></div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_9IMbKOVmsg.png"><img alt="image" src="../../images/vivaldi_9IMbKOVmsg.png"/></a></p>
+<ul>
+<li>Although MySQL is running, it is isolated within the container because no network ports have been published to the host. </li>
+<li>
+<p>Network traffic cannot reach containers from the host unless ports are explicitly published.</p>
+</li>
+<li>
+<p>List the MySQL version using <code>docker container exec</code>.</p>
+</li>
+<li>
+<p><code>docker container exec</code> allows you to run a command inside a container.</p>
+</li>
+<li>
+<p>In this example, we'll use <code>docker container exec</code> to run the command-line equivalent of <code>mysql --user=root --password=$MYSQL_ROOT_PASSWORD --version</code> inside our MySQL container.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>docker exec -it mydb \
+<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>mysql --user=root --password=$MYSQL_ROOT_PASSWORD --version
+</code></pre></div>
+<p>You will see the MySQL version number, as well as a handy warning.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_H6Nq22jnHT.png"><img alt="image" src="../../images/vivaldi_H6Nq22jnHT.png"/></a></p>
+<ul>
+<li>You can also use <code>docker container exec</code> to connect to a new shell process inside an already-running container. </li>
+<li>
+<p>Executing the command below will give you an interactive shell (<code>sh</code>) inside your MySQL container.  </p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>docker exec -it mydb sh
+</code></pre></div>
+</li>
+<li>
+<p>Notice that your shell prompt has changed. This is because your shell is now connected to the <code>sh</code> process running inside of your container.</p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_maDgnPMl7t.png"><img alt="image" src="../../images/vivaldi_maDgnPMl7t.png"/></a></p>
+<ul>
+<li>
+<p>Let's check the version number by running the same command again, only this time from within the new shell session in the container.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>mysql --user=root --password=$MYSQL_ROOT_PASSWORD --version
+</code></pre></div>
+</li>
+<li>
+<p>Notice the output is the same as before.</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_Fsw6gRpio2.png"><img alt="image" src="../../images/vivaldi_Fsw6gRpio2.png"/></a></p>
+</li>
+<li>
+<p>Type <code>exit</code> to leave the interactive shell session.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>exit
+</code></pre></div>
+</li>
+</ul>
+<h2 id="package-and-run-a-custom-app-using-docker-and-dockerfile">Package and run a custom app using Docker and Dockerfile</h2>
+<p>use the following git command to clone this repository containing sample application which we will dockerize </p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>git clone https://github.com/dockersamples/linux_tweet_app
+</code></pre></div>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_0MfYDxjaNJ.png"><img alt="image" src="../../images/vivaldi_0MfYDxjaNJ.png"/></a></p>
+<ul>
+<li>
+<p>In this step you'll learn how to package your own apps as Docker images using a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>.</p>
+</li>
+<li>
+<p>The Dockerfile syntax is straightforward. </p>
+</li>
+<li>In this task, we're going to create a simple NGINX website from a Dockerfile.</li>
+</ul>
+<h3 id="build-a-simple-website-image">Build a simple website image</h3>
+<ul>
+<li>
+<p>Let's have a look at the  Dockerfile we'll be using, which builds a simple website that allows you to send a tweet.</p>
+</li>
+<li>
+<p>Make sure you're in the <code>linux_tweet_app</code> directory.</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>cd ~/linux_tweet_app
+</code></pre></div>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/l2tP6tamzX.png"><img alt="image" src="../../images/l2tP6tamzX.png"/></a></p>
+</li>
+<li>
+<p>Display the contents of the Dockerfile.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>cat Dockerfile
+</code></pre></div>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_49dTte0RDK.png"><img alt="image" src="../../images/vivaldi_49dTte0RDK.png"/></a></p>
+<ul>
+<li>
+<p>Let's see what each of these lines in the Dockerfile do.</p>
+<ul>
+<li><a href="https://docs.docker.com/engine/reference/builder/#from">FROM</a> specifies the base image to use as the starting point for this new image you're creating. For this example we're starting from <code>nginx:latest</code>.</li>
+<li><a href="https://docs.docker.com/engine/reference/builder/#copy">COPY</a> copies files from the Docker host into the image, at a known location. In this example, <code>COPY</code> is used to copy two files into the image: <code>index.html</code>. and a graphic that will be used on our webpage.</li>
+<li><a href="https://docs.docker.com/engine/reference/builder/#expose">EXPOSE</a> documents which ports the application uses.</li>
+<li><a href="https://docs.docker.com/engine/reference/builder/#cmd">CMD</a> specifies what command to run when a container is started from the image. Notice that we can specify the command, as well as run-time arguments.</li>
+</ul>
+</li>
+<li>
+<p>In order to make the following commands more copy/paste friendly</p>
+</li>
+<li>export an environment variable containing your DockerID (if you don't have a DockerID you can get one for free via <a href="https://hub.docker.com">Docker Hub</a>).</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_ThDHJYn02h.png"><img alt="image" src="../../images/vivaldi_ThDHJYn02h.png"/></a></p>
+<p>copy your docker ID</p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/bBaja4xfem.png"><img alt="image" src="../../images/bBaja4xfem.png"/></a></p>
+<ul>
+<li>
+<p>You will have to manually type this command as it requires your unique DockerID.</p>
+<p><code>export DOCKERID=&lt;your docker id&gt;</code></p>
+</li>
+</ul>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_vHPCf1lMrh.png"><img alt="image" src="../../images/vivaldi_vHPCf1lMrh.png"/></a></p>
+<ol>
+<li>
+<p>Echo the value of the variable back to the terminal to ensure it was stored correctly.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a>echo $DOCKERID
+</code></pre></div>
+</li>
+</ol>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_rKiUkN54IR.png"><img alt="image" src="../../images/vivaldi_rKiUkN54IR.png"/></a></p>
+<ol>
+<li>
+<p>Use the <code>docker image build</code> command to create a new Docker image using the instructions in the Dockerfile.</p>
+<ul>
+<li><code>--tag</code> allows us to give the image a custom name. In this case it's comprised of our DockerID, the application name, and a version. Having the Docker ID attached to the name will allow us to store it on Docker Hub in a later step</li>
+<li><code>.</code> tells Docker to use the current directory as the build context</li>
+</ul>
+<p>Be sure to include period (<code>.</code>) at the end of the command.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a>docker image build --tag $DOCKERID/linux_tweet_app:1.0 .
+</code></pre></div>
+<p>The output below shows the Docker daemon executing each line in the Dockerfile</p>
+</li>
+</ol>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_UMhZwSC8i3.png"><img alt="image" src="../../images/vivaldi_UMhZwSC8i3.png"/></a></p>
+<ol>
+<li>
+<p>Use the <code>docker container run</code> command to start a new container from the image you created.</p>
+<p>As this container will be running an NGINX web server, we'll use the <code>--publish</code> flag to publish port 80 inside the container onto port 80 on the host. This will allow traffic coming in to the Docker host on port 80 to be directed to port 80 in the container. The format of the <code>--publish</code> flag is <code>host_port</code>:<code>container_port</code>.</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a>docker container run \
+<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>--detach \
+<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a>--publish 80:80 \
+<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a>--name linux_tweet_app \
+<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>$DOCKERID/linux_tweet_app:1.0
+</code></pre></div>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_PbmTEtBzt1.png"><img alt="image" src="../../images/vivaldi_PbmTEtBzt1.png"/></a></p>
+</li>
+<li>
+<p>Any external traffic coming into the server on port 80 will now be directed into the container on port 80.</p>
+</li>
+<li>
+<p>In a later step you will see how to map traffic from two different ports - this is necessary when two containers use the same port to communicate since you can only expose the port once on the host.  </p>
+</li>
+<li>
+<p>Click the 80 Button to open the website you deployed</p>
+</li>
+</ol>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/rD4so8t2pE.png"><img alt="image" src="../../images/rD4so8t2pE.png"/></a></p>
+<p><a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/T0jNU7h0WJ.png"><img alt="image" src="../../images/T0jNU7h0WJ.png"/></a></p>
+<ol>
+<li>
+<p>Once you've accessed your website, shut it down and remove it.</p>
+<p><div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a>docker container rm --force linux_tweet_app
+</code></pre></div>
+<a class="glightbox" data-desc-position="bottom" data-height="auto" data-width="100%" href="../../images/vivaldi_U4Rif6m9DT.png"><img alt="image" src="../../images/vivaldi_U4Rif6m9DT.png"/></a></p>
+</li>
+</ol>
+<blockquote>
+<p><strong>Note:</strong> We used the <code>--force</code> parameter to remove the running container without shutting it down. This will ungracefully shutdown the container and permanently remove it from the Docker host.</p>
+<p>In a production environment you may want to use <code>docker container stop</code> to gracefully stop the container and leave it on the host. You can then use <code>docker container rm</code> to permanently remove it.</p>
+</blockquote>
+<!-- 
+## <a name="Task_3"></a>Task 3: Modify a running website
+
+When you're actively working on an application it is inconvenient to have to stop the container, rebuild the image, and run a new version every time you make a change to your source code.
+
+One way to streamline this process is to mount the source code directory on the local machine into the running container. This will allow any changes made to the files on the host to be immediately reflected in the container.
+
+We do this using something called a [bind mount](https://docs.docker.com/engine/admin/volumes/bind-mounts/).
+
+When you use a bind mount, a file or directory on the host machine is mounted into a container running on the same host.
+
+### Start our web app with a bind mount
+
+1. Let's start the web app and mount the current directory into the container.
+
+    In this example we'll use the `--mount` flag to mount the current directory on the host into `/usr/share/nginx/html` inside the container.
+
+    Be sure to run this command from within the `linux_tweet_app` directory on your Docker host.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>docker container run \
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>--detach \
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>--publish 80:80 \
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>--name linux_tweet_app \
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>--mount type=bind,source=&quot;$(pwd)&quot;,target=/usr/share/nginx/html \
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>$DOCKERID/linux_tweet_app:1.0
+</code></pre></div>
+
+    > Remember from the Dockerfile, `/usr/share/nginx/html` is where the html files are stored for the web app.
+
+2. The [website](/){:data-term=".term1"}{:data-port="80"} should be running.
+
+### Modify the running website
+
+Bind mounts mean that any changes made to the local file system are immediately reflected in the running container.
+
+1. Copy a new `index.html` into the container.
+
+    The Git repo that you pulled earlier contains several different versions of an index.html file. You can manually run an `ls` command from within the `~/linux_tweet_app` directory to see a list of them. In this step we'll replace `index.html` with `index-new.html`.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>cp index-new.html index.html
+</code></pre></div>
+
+2. Go to the running [website](/){:data-term=".term1"}{:data-port="80"} and **refresh the page**. Notice that the site has changed.
+
+    > If you are comfortable with `vi` you can use it to load the local `index.html` file and make additional changes. Those too would be reflected when you reload the webpage.
+    > If you are really adventurous, why not try using `exec` to access the running container and modify the files stored there.
+
+Even though we've modified the `index.html` local filesystem and seen it reflected in the running container, we've not actually changed the Docker image that the container was started from.
+
+To show this, stop the current container and re-run the `1.0` image without a bind mount.
+
+1. Stop and remove the currently running container.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>docker rm --force linux_tweet_app
+</code></pre></div>
+
+2. Rerun the current version without a bind mount.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>docker container run \
+<a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a>--detach \
+<a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>--publish 80:80 \
+<a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a>--name linux_tweet_app \
+<a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>$DOCKERID/linux_tweet_app:1.0
+</code></pre></div>
+
+3.  Notice  the [website](/){:data-term=".term1"}{:data-port="80"} is back to the original version.
+
+4.  Stop and remove the current container
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>docker rm --force linux_tweet_app
+</code></pre></div>
+
+### Update the image
+
+To persist the changes you made to the `index.html` file into the image, you need to build a new version of the image.
+
+1. Build a new image and tag it as `2.0`
+
+    Remember that you previously modified the `index.html` file on the Docker hosts local filesystem. This means that running another `docker image build` command will build a new image with the updated `index.html`
+
+    Be sure to include the period (`.`) at the end of the command.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>docker image build --tag $DOCKERID/linux_tweet_app:2.0 .
+</code></pre></div>
+
+    Notice how fast that built! This is because Docker only modified the portion of the image that changed vs. rebuilding the whole image.
+
+2. Let's look at the images on the system.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>docker image ls
+</code></pre></div>
+
+    You now have both versions of the web app on your host.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>&lt;docker id&gt;/linux_tweet_app    2.0                 01612e05312b        16 seconds ago      108MB
+<a id="__codelineno-30-3" name="__codelineno-30-3" href="#__codelineno-30-3"></a>&lt;docker id&gt;/linux_tweet_app    1.0                 bb32b5783cd3        4 minutes ago       108MB
+<a id="__codelineno-30-4" name="__codelineno-30-4" href="#__codelineno-30-4"></a>mysql                          latest              b4e78b89bcf3        2 weeks ago         412MB
+<a id="__codelineno-30-5" name="__codelineno-30-5" href="#__codelineno-30-5"></a>ubuntu                         latest              2d696327ab2e        2 weeks ago         122MB
+<a id="__codelineno-30-6" name="__codelineno-30-6" href="#__codelineno-30-6"></a>nginx                          latest              da5939581ac8        3 weeks ago         108MB
+<a id="__codelineno-30-7" name="__codelineno-30-7" href="#__codelineno-30-7"></a>alpine                         latest              76da55c8019d        3 weeks ago         3.97MB
+</code></pre></div>
+
+
+### Test the new version
+
+1. Run a new container from the new version of the image.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>docker container run \
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>--detach \
+<a id="__codelineno-31-3" name="__codelineno-31-3" href="#__codelineno-31-3"></a>--publish 80:80 \
+<a id="__codelineno-31-4" name="__codelineno-31-4" href="#__codelineno-31-4"></a>--name linux_tweet_app \
+<a id="__codelineno-31-5" name="__codelineno-31-5" href="#__codelineno-31-5"></a>$DOCKERID/linux_tweet_app:2.0
+</code></pre></div>
+
+2. Check the new version of the [website](/){:data-term=".term1"}{:data-port="80"} (**You may need to refresh your browser to get the new version to load**).
+
+    The web page will have an orange background.
+
+    We can run both versions side by side. The only thing we need to be aware of is that we cannot have two containers using port 80 on the same host.
+
+    As we're already using port 80 for the container running from the `2.0` version of the image, we will start a new container and publish it on port 8080. Additionally, we need to give our container a unique name (`old_linux_tweet_app`)
+
+3. Run another new container, this time from the old version of the image.
+
+    Notice that this command maps the new container to port 8080 on the host. This is because two containers cannot map to the same port on a single Docker host.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>docker container run \
+<a id="__codelineno-32-2" name="__codelineno-32-2" href="#__codelineno-32-2"></a>--detach \
+<a id="__codelineno-32-3" name="__codelineno-32-3" href="#__codelineno-32-3"></a>--publish 8080:80 \
+<a id="__codelineno-32-4" name="__codelineno-32-4" href="#__codelineno-32-4"></a>--name old_linux_tweet_app \
+<a id="__codelineno-32-5" name="__codelineno-32-5" href="#__codelineno-32-5"></a>$DOCKERID/linux_tweet_app:1.0
+</code></pre></div>
+
+4. View the old version of the [website](/){:data-term=".term1"}{:data-port="8080"}.
+
+### Push your images to Docker Hub
+
+1. List the images on your Docker host.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a>docker image ls -f reference=&quot;$DOCKERID/*&quot;
+</code></pre></div>
+
+    You will see that you now have two `linux_tweet_app` images - one tagged as `1.0` and the other as `2.0`.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>REPOSITORY                     TAG                 IMAGE ID            CREATED             SIZE
+<a id="__codelineno-34-2" name="__codelineno-34-2" href="#__codelineno-34-2"></a>&lt;docker id&gt;/linux_tweet_app    2.0                 01612e05312b        3 minutes ago       108MB
+<a id="__codelineno-34-3" name="__codelineno-34-3" href="#__codelineno-34-3"></a>&lt;docker id&gt;/linux_tweet_app    1.0                 bb32b5783cd3        7 minutes ago       108MB
+</code></pre></div>
+
+    These images are only stored in your Docker hosts local repository. Your Docker host will be deleted after the workshop. In this step we'll push the images to a public repository so you can run them from any Linux machine with Docker.
+
+    Distribution is built into the Docker platform. You can build images locally and push them to a public or private [registry](https://docs.docker.com/registry/), making them available to other users. Anyone with access can pull that image and run a container from it. The behavior of the app in the container will be the same for everyone, because the image contains the fully-configured app - the only requirements to run it are Linux and Docker.
+
+    [Docker Hub](https://hub.docker.com) is the default public registry for Docker images.
+
+2. Before you can push your images, you will need to log into Docker Hub.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a>docker login
+</code></pre></div>
+
+    You will need to supply your Docker ID credentials when prompted.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>Username: &lt;your docker id&gt;
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>Password: &lt;your docker id password&gt;
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>Login Succeeded
+</code></pre></div>
+
+3. Push version `1.0` of your web app using `docker image push`.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a>docker image push $DOCKERID/linux_tweet_app:1.0
+</code></pre></div>
+
+    You'll see the progress as the image is pushed up to Docker Hub.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a>The push refers to a repository [docker.io/&lt;your docker id&gt;/linux_tweet_app]
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>910e84bcef7a: Pushed
+<a id="__codelineno-38-3" name="__codelineno-38-3" href="#__codelineno-38-3"></a>1dee161c8ba4: Pushed
+<a id="__codelineno-38-4" name="__codelineno-38-4" href="#__codelineno-38-4"></a>110566462efa: Pushed
+<a id="__codelineno-38-5" name="__codelineno-38-5" href="#__codelineno-38-5"></a>305e2b6ef454: Pushed
+<a id="__codelineno-38-6" name="__codelineno-38-6" href="#__codelineno-38-6"></a>24e065a5f328: Pushed
+<a id="__codelineno-38-7" name="__codelineno-38-7" href="#__codelineno-38-7"></a>1.0: digest: sha256:51e937ec18c7757879722f15fa1044cbfbf2f6b7eaeeb578c7c352baba9aa6dc size: 1363
+</code></pre></div>
+4. Now push version `2.0`.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>docker image push $DOCKERID/linux_tweet_app:2.0
+</code></pre></div>
+
+    Notice that several lines of the output say `Layer already exists`. This is because Docker will leverage read-only layers that are the same as any previously uploaded image layers.
+
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>The push refers to a repository [docker.io/&lt;your docker id&gt;/linux_tweet_app]
+<a id="__codelineno-40-2" name="__codelineno-40-2" href="#__codelineno-40-2"></a>0b171f8fbe22: Pushed
+<a id="__codelineno-40-3" name="__codelineno-40-3" href="#__codelineno-40-3"></a>70d38c767c00: Pushed
+<a id="__codelineno-40-4" name="__codelineno-40-4" href="#__codelineno-40-4"></a>110566462efa: Layer already exists
+<a id="__codelineno-40-5" name="__codelineno-40-5" href="#__codelineno-40-5"></a>305e2b6ef454: Layer already exists
+<a id="__codelineno-40-6" name="__codelineno-40-6" href="#__codelineno-40-6"></a>24e065a5f328: Layer already exists
+<a id="__codelineno-40-7" name="__codelineno-40-7" href="#__codelineno-40-7"></a>2.0: digest: sha256:7c51f77f90b81e5a598a13f129c95543172bae8f5850537225eae0c78e4f3add size: 1363
+</code></pre></div>
+
+You can browse to `https://hub.docker.com/r/<your docker id>/` and see your newly-pushed Docker images. These are public repositories, so anyone can pull the image - you don't even need a Docker ID to pull public images. Docker Hub also supports private repositories.
+
+
+
+##
+### Make sure you have a DockerID
+
+If you do not have a DockerID (a free login used to access Docker Hub), please visit [Docker Hub](https://hub.docker.com) and register for one. You will need this for later steps. -->
+</article>
+</div>
+</div>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Installation" class="md-footer__link md-footer__link--prev" href="../installation/" rel="prev">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"></path></svg>
+</div>
+<div class="md-footer__title">
+<div class="md-ellipsis">
+<span class="md-footer__direction">
+                Previous
+              </span>
+              Installation
+            </div>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.code.annotate", "content.code.copy"], "search": "../../assets/javascripts/workers/search.16e2a7d4.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version.title": "Select version"}}</script>
+<script src="../../assets/javascripts/bundle.5a2dcb6a.min.js"></script>
+<script>document$.subscribe(() => {const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});})</script></body>
+</html>
