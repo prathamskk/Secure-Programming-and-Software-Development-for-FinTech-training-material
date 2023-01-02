@@ -3,6 +3,7 @@ nav:
     - Home: index.md
     - Docker:
       - Installation: docker/installation.md
+      - 'Lab 1 Basics': docker/01_basics.md
 theme:
   name: material
   palette: 
@@ -18,6 +19,10 @@ theme:
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
+  features:
+    - content.code.annotate 
+    - content.code.copy
+
 markdown_extensions:
   - attr_list
   - md_in_html
